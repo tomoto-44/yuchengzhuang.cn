@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件抽签</title>
+    <style>
+        /* 样式：汝瓷天青色主题 */
+        body {
+            font-family: sans-serif;
+            background-color: #f0f8ff; /* 浅色背景 */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #90D7EC; /* 天青色 */
+        }
+
+        button {
+            background-color: #90D7EC;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #70b7cc;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+
+            #result {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>事件抽签</h1>
+        <button id="drawButton">点击抽签</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // JavaScript 代码
+        const fortunes = [
+            "吉：天青色等烟雨，而我在等你。",
+            "中吉：雨过天晴，万象更新。",
+            "小吉：汝瓷温润，生活美好。",
+            "末吉：静待花开，终有所获。",
+            "凶：偶有不顺，心怀希望。"
+        ];
+
+        const drawButton = document.getElementById("drawButton");
+        const resultDiv = document.getElementById("result");
+
+        drawButton.addEventListener("click", function() {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            resultDiv.textContent = fortunes[randomIndex];
+        });
+    </script>
+</body>
+</html>
